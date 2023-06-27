@@ -27,9 +27,9 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 import numpy as np
 
-df_2000 = pd.read_csv("Chat-App-OpenAssistant-API\Spotify-2000.csv")
+df_2000 = pd.read_csv("Spotify-2000.csv")
 df_top10s = pd.read_csv(
-    "Chat-App-OpenAssistant-API\stop10s.csv", engine='pyarrow')
+    "stop10s.csv", engine='pyarrow')
 #df_2000.head()
 
 # df_2000.info()
