@@ -29,8 +29,6 @@ load_dotenv()
 
 def prompt_generate(predicted_emotion, predicted_genre, predicted_facial):
     prompt = f"Give a 3-5 liner prompt to generate an art of a person who is {predicted_facial} to hear a {predicted_genre} music giving {predicted_emotion} emotion that will make the viewer {predicted_emotion}."
-def prompt_generate(predicted_emotion, predicted_genre):
-    prompt = f"Give a 3-5 liner prompt to generate an art for {predicted_genre} music giving {predicted_emotion} emotion that will make the viewer {predicted_emotion}."
     return prompt
 
 def chain_setup():
