@@ -30,9 +30,7 @@ import numpy as np
 df_2000 = pd.read_csv("Spotify-2000.csv")
 df_top10s = pd.read_csv(
     "stop10s.csv", engine='pyarrow')
-#df_2000.head()
 
-# df_2000.info()
 
 len(df_2000["Top Genre"].unique())
 
@@ -127,48 +125,11 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.linear_model import SGDClassifier
 from sklearn.multiclass import OneVsOneClassifier
 
-# models = []
-# models += [['Naive Bayes', GaussianNB()]]
-# models += [['SGD', OneVsOneClassifier(SGDClassifier())]]
-# models += [['Logistic', LogisticRegression(multi_class = 'ovr')]]
-# rand_forest = RandomForestClassifier(random_state = 42, min_samples_split = 5)
-
-# result_ST =[]
-# kfold = StratifiedKFold(n_splits = 10, random_state = 1, shuffle = True)
-
-# # Random Forest has to be done separately since it takes in one hot encoded labels instead
-# RF_cross_val_score = cross_val_score(rand_forest, X_train_ST, y_train_1hot, cv = 10, scoring = 'accuracy')
-# print('%s: %f (%f)' % ('Random Forest', RF_cross_val_score.mean(), RF_cross_val_score.std()))
-
-# for name, model in models:
-#     cv_score = cross_val_score(model, X_train_ST, y_train, cv = kfold, scoring = 'accuracy')
-#     result_ST.append(cv_score)
-#     print('%s: %f (%f)' % (name,cv_score.mean(), cv_score.std()))
 
 from sklearn.metrics import precision_score, recall_score
-
-# result_precision_recall = []
-
-# # same reasoning as before for Random Forest
-# y_temp_randforest = cross_val_predict(rand_forest, X_train_ST, y_train_1hot, cv = 10)
-# result_precision_recall += [['Random Forest', precision_score(y_train_1hot, y_temp_randforest, average = "micro"),
-#                             recall_score(y_train_1hot, y_temp_randforest, average = "micro")]]
-
-# print('%s| %s: %f, %s (%f)' % ('Random Forest', 'Precision Score: ', precision_score(y_train_1hot, y_temp_randforest, average = "micro"),
-#                            'Recall Score: ', recall_score(y_train_1hot, y_temp_randforest, average = "micro")))
-
-# for name, model in models:
-#     y_pred = cross_val_predict(model, X_train_ST, y_train, cv = kfold)
-#     precision = precision_score(y_train, y_pred, average = "micro")
-#     recall = recall_score(y_train, y_pred, average = "micro")
-#     # storing the precision and recall values
-#     result_precision_recall += [[name , precision, recall]]
-#     print('%s| %s: %f, %s (%f)' % (name, 'Precision Score: ', precision, 'Recall Score: ', recall))
-
 from sklearn.metrics import f1_score
 
-# for name, precision, recall in result_precision_recall:
-#     print("%s: %f" % (name, 2 * (precision * recall) / (precision + recall)))
+
 
 # training the models
 model_method1 = LogisticRegression(multi_class = 'ovr').fit(X_train_ST, y_train)
@@ -188,11 +149,3 @@ def predict_genre(features_1):
     pred_genre = model.predict(features_1)
     return pred_genre[0]
 
-# from feature_extract.feature_genre import *
-# token = get_token()
-# track_id = get_track_id('Jimmy Cooks', token)
-
-# features_1 = get_features(track_id, token)
-
-# pred_genre = model.predict(features_1)
-# print(pred_genre[0])

@@ -40,22 +40,7 @@ from sklearn.metrics import accuracy_score, classification_report
 # Splitting training data and testing data
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
-# models = []
-# models.append(('Random Forest Classifier',RandomForestClassifier()))
-# models.append(('Gradient Boosting Classifier',GradientBoostingClassifier()))
-# models.append(('XGB Classifier', XGBClassifier()))
-# models.append(('Decision Tree Classifier', DecisionTreeClassifier()))
-# # models.append(('LGBM Classifier', LGBMClassifier()))
-# models.append(('Support Vector Classifier', SVC()))
-# models.append(('KNN Classifier', KNeighborsClassifier()))
 
-# for name, model in models:
-#     model.fit(X_train, y_train)
-
-#     predictions = model.predict(X_test)
-#     accuracy = accuracy_score(predictions, y_test)
-
-#     print('Accuracy for {} : {:3.3f}\nClassification Report for {} : \n{}'.format(name, accuracy_score(predictions, y_test), name, classification_report(predictions, y_test, target_names=target_names)))
 
 
 clf = XGBClassifier()
@@ -68,17 +53,6 @@ print(classification_report(predictions, y_test, target_names=target_names))
 def predict_emotion(features1):
     pred = clf.predict(features1)
     return target_names[pred[0]]
-
-
-
-# from feature_extract.main import *
-# token = get_token()
-# track_id = get_track_id('Naina', token)
-
-# features_1 = get_features(track_id, token)
-
-# features_1['length'] = (features_1['length'])/max_len
-
 
 
 

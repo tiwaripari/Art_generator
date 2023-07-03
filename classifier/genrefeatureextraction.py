@@ -78,34 +78,10 @@ def feature_extraction(file_path):
   scaler = StandardScaler()
   data_scaled = scaler.fit_transform(df1)
  
-
-  
-
-
-
   return df1
 
 
 x = 'music_sample\Energetic.mp3'
 features_1 = feature_extraction(x)
 print(features_1)
-
-# y = '/content/midnight-blues-21179.mp3'
-# features_2 = feature_extraction(y)
-# features_2.columns
-
-# from google.colab import files
-
-# # Prompt the user to upload a file
-# uploaded = files.upload()
-
-# from genreclassification import predict_genre
-
-# prediction_1 = predict_genre(features_1)
-
-# prediction_1
-
-# prediction_2 = predict_genre(features_2)
-
-# prediction_2
 
