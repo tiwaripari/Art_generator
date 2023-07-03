@@ -25,9 +25,5 @@ In the `.env` set your API key.
 ```shell
 HUGGINGFACEHUB_API_TOKEN=
 ```
-
-## Run the WebApp:
-
-```shell
-streamlit run huggingChat.py
-```
+## For fer_best.h5 file
+Use: https://drive.google.com/file/d/1gQSa4SkckFXW_r-efE4XQlQSqE1AKzT3/view?usp=drive_link
