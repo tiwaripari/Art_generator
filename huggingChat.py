@@ -12,6 +12,7 @@ import io
 import requests
 import matplotlib.pyplot as plt
 from EmotionFacialRecog.emotion_recog import *
+
 API_URL = "https://api-inference.huggingface.co/models/SG161222/Realistic_Vision_V1.4"
 headers = {"Authorization": "Bearer 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"}
 
@@ -69,6 +70,8 @@ load_dotenv()
 
 def prompt_generate(predicted_emotion, predicted_genre, predicted_facial):
     prompt = f"Give a 3-5 liner prompt to generate an art of a person who is {predicted_facial} to hear a {predicted_genre} music giving {predicted_emotion} emotion that will make the viewer {predicted_emotion}."
+def prompt_generate(predicted_emotion, predicted_genre):
+    prompt = f"Give a 3-5 liner prompt to generate an art for {predicted_genre} music giving {predicted_emotion} emotion that will make the viewer {predicted_emotion}."
     return prompt
 
 def chain_setup():
@@ -97,7 +100,7 @@ llm_chain = chain_setup()
 
     
 token = get_token()
-track_id = get_track_id('Baarishein', token)
+track_id = get_track_id('Jimmy Cooks', token)
 
 features_1 = get_features(track_id, token)
 
