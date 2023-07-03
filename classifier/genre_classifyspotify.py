@@ -27,9 +27,9 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 import numpy as np
 
-df_2000 = pd.read_csv("Spotify-2000.csv")
+df_2000 = pd.read_csv("Spotify-2000.csv") # change the address accordingly
 df_top10s = pd.read_csv(
-    "stop10s.csv", engine='pyarrow')
+    "stop10s.csv", engine='pyarrow') #change the address accordingly
 
 
 len(df_2000["Top Genre"].unique())
