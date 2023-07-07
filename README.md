@@ -15,3 +15,5 @@ HUGGINGFACEHUB_API_TOKEN=
 ```
 ## For fer_best.h5 file for emotion_recog.py file
 Use: https://drive.google.com/file/d/1gQSa4SkckFXW_r-efE4XQlQSqE1AKzT3/view?usp=drive_link
+
+## The Final project is huggingChat.py 
