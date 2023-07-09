@@ -27,8 +27,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def prompt_generate(predicted_emotion, predicted_genre, predicted_facial):
-    prompt = f"Give a 3-5 liner prompt to generate an art of a person who is {predicted_facial} to hear a {predicted_genre} music giving {predicted_emotion} emotion that will make the viewer {predicted_emotion}."
+def prompt_generate(predicted_emotion, predicted_genre, predicted_facial, type_img):
+    prompt = f"Give just 3 to 5 lines prompt to generate an {type_img}  art that makes the viewer {predicted_emotion}, but at the same time has a pinch of {predicted_facial} and music of {predicted_genre}, don't include human figure in the painting."
     return prompt
 
 def chain_setup():
@@ -69,7 +69,8 @@ file = r"C:\Users\tiwar\Artgenerator\Chat-App-OpenAssistant-API\EmotionFacialRec
 pred_genre = predict_genre(features2)
 pred_emotion = predict_emotion(features_1)
 pred_facial = emotion_recog(file)
-prompt = prompt_generate(pred_emotion, pred_genre, pred_facial)
+type = "oil"
+prompt = prompt_generate(pred_emotion, pred_genre, pred_facial, type)
 
 response = generate_response(prompt, llm_chain)
 print(response)
